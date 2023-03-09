@@ -1,11 +1,6 @@
 use std::io;
 
 fn main() {
-    println!("Hello, world!");
-    p_2();
-}
-
-fn p_2() {
     println!("번호 추측하기!");
     println!("예측 번호를 입력하세요.");
 
@@ -16,4 +11,3 @@ fn p_2() {
 
     println!("your guessed : {}", guess);
 }
-
