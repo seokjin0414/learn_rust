@@ -1,14 +1,3 @@
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn main() {
-    println!("Hello, world!");
-    p_3_3(123, "asd123");
-}
-
 fn p_3_3(x: u32, y: &str) {
     println!("The value of x is: {x}");
     println!("The value of y is: {y}");
@@ -41,6 +30,3 @@ fn one() -> i32 {
 fn plus_one(x: i32) -> i32 {
     x + 1
 }
-
-
-
