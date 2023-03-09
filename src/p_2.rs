@@ -4,7 +4,7 @@ use std::io;
 use std::cmp::Ordering;
 use rand::Rng;
 
-fn main() {
+fn p_2() {
     println!("번호 추측하기!");
 
     let secret_number = rand::thread_rng().gen_range(1..=101);

@@ -1,15 +1,3 @@
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn main() {
-    println!("Hello, world!");
-    p_3_2();
-}
-
-
 fn p_3_2() {
     let x = 2.0; // f64
 
@@ -80,8 +68,3 @@ fn p_3_2() {
     let element = a[index];
     println!("The value of the element at index {index} is: {element}");
 }
-
-
-
-
-
