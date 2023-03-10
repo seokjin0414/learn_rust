@@ -1,13 +1,3 @@
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn main() {
-    p_3_4_loop();
-}
-
 fn p_3_4_loop() {
     let mut count = 0;
     'counting_up: loop {
@@ -53,8 +43,3 @@ fn p_3_4_loop() {
     }
     println!("enddddd");
 }
-
-
-
-
-
