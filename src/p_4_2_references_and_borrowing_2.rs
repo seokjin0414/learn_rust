@@ -1,13 +1,3 @@
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn main() {
-    p_4_2_references_and_borrowing_2();
-}
-
 fn p_4_2_references_and_borrowing_2() {
     let reference_nothing = dangle();
 
@@ -20,4 +10,3 @@ fn dangle() -> &String { // dangle returns a reference to a String
     &s // we return a reference to the String, s
 } // Here, s goes out of scope, and is dropped. Its memory goes away.
 // Danger!
-
