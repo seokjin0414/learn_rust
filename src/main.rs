@@ -6,68 +6,29 @@ use std::path::Component::ParentDir;
 use rand::Rng;
 
 fn main() {
-    p_5_1_structs();
+    p_5_2_structs_ex();
 }
 
-fn p_5_1_structs() {
-    let mut user1 = User {
-        active: true,
-        username: String::from("shin"),
-        email: String::from("shin@email.com"),
-        sign_in_count: 1,
-    };
-    user1.email = String::from("seokjin@email.net");
+fn p_5_2_structs_ex() {
+    let width1 = 30;
+    let height1 = 50;
+    println!("The area of the rectangle is {} square pixels.", area(width1, height1));
 
-    // normal
-    let user2 = User {
-        active: user1.active,
-        username: user1.username,
-        email: String::from("aaaabbbbb@ccc.ddd"),
-        sign_in_count: user1.sign_in_count,
-    };
+    let rect1 = (30, 40);
+    println!("The area of the rectangle is {} square pixels.", area_2(rect1));
 
-    // struct
-    let user3 = User {
-        email: String::from("ccc@ccc.ccc"),
-        ..user2
-    };
-
-
-    let black = Color(0, 0, 0);
-    let origin = Point(0, 0, 0);
-
-
-    let subject = AlwaysEqual;
 }
 
-struct User {
-    active: bool,
-    username: String,
-    email: String,
-    sign_in_count: u64,
+fn area(width: u32, height: u32) -> u32 {
+    width * height
 }
 
-fn build_user(email: String, username: String) -> User {
-    User {
-        active: true,
-        username: username,
-        email: email,
-        sign_in_count: 1,
-    }
+fn area_2(dimensions: (u32, u32)) -> u32 {
+    dimensions.0 * dimensions.1
 }
 
-fn build_user_2(email: String, username: String) -> User {
-    User {
-        active: true,
-        username,
-        email,
-        sign_in_count: 1,
-    }
+struct Rectengle {
+    width: u32,
+    height: u32,
+
 }
-
-
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
-
-
-struct AlwaysEqual;
