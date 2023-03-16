@@ -1,14 +1,3 @@
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use std::path::Component::ParentDir;
-use rand::Rng;
-
-fn main() {
-    p_5_2_structs_ex();
-}
-
 fn p_5_2_structs_ex() {
     let width1 = 30;
     let height1 = 50;
