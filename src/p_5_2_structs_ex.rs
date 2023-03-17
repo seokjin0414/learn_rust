@@ -1,14 +1,3 @@
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use std::path::Component::ParentDir;
-use rand::Rng;
-
-fn main() {
-    p_5_2_structs_ex();
-}
-
 fn p_5_2_structs_ex() {
     let width1 = 30;
     let height1 = 50;
@@ -18,8 +7,8 @@ fn p_5_2_structs_ex() {
     println!("The area of the rectangle is {} square pixels.", area_2(rect1));
 
     let rect2 = Rectengle {
-        width: 30,
-        height: 30,
+        width: 20,
+        height: 400,
     };
     println!("The area of the rectangle is {} square pixels.", area_3(&rect2));
 
