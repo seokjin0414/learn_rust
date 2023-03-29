@@ -21,4 +21,17 @@ fn p_6_2_match() {
         Some(third) => println!("The third element is {third}"),
         None => println!("There is no third element."),
     }
+
+    let v = vec![1, 2, 3, 4, 5];
+
+    let does_not_exist = &v[100];
+    let does_not_exist = v.get(100);
+
+    let mut v = vec![1, 2, 3, 4, 5];
+
+    let first = &v[0];
+
+    v.push(6);
+
+    println!("The first element is: {first}");
 }
