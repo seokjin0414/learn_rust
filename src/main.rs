@@ -26,3 +26,15 @@ fn value_in_number(coin: Coin) -> u8 {
     }
 }
 
+fn value_in_number_2(coin: Coin) -> u8 {
+    match coin {
+        Coin::찬원 => {
+            println!("이황");
+            1000
+        }
+        Coin::오천원 => 5000,
+        Coin::만원 => 10000,
+        Coin::오만원 => 50000,
+    }
+}
+
