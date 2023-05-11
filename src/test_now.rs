@@ -1,27 +1,40 @@
-use std::fmt;
-use std::io::Error;
+let v = vec![1, 2, 3, 4, 5];
 
-pub trait Write {
-    fn write(&mut self, buf: &[u8]) -> Result<usize, Error>;
-    fn flush(&mut self) -> Result<(), Error>;
+let third: &i32 = &v[2];
+println!("The third element is {third}");
 
-    fn write_all(&mut self, buf: &[u8]) -> Result<(), Error>;
-    fn write_fmt(&mut self, fmt: fmt::Arguments) -> Result<(), Error>;
+let third: Option<&i32> = v.get(2);
+match third {
+Some(third) => println!("The third element is {third}"),
+None => println!("There is no third element."),
 }
 
-pub trait Write_2 {
-    fn write(&mut self, buf: &[u8]) -> Result<usize>;
-    fn flush(&mut self) -> Result<()>;
 
-    fn write_all(&mut self, buf: &[u8]) -> Result<()>;
-    fn write_fmt(&mut self, fmt: fmt::Arguments) -> Result<()>;
+
+let z = vec![100, 32, 57];
+for i in &v {
+println!("{i}");
 }
 
-impl<T> Option<T> {
-    pub fn unwrap(self) -> T {
-        match self {
-            Some(val) => val,
-            None => panic!("called `Option::unwrap()` on a `None` value"),
-        }
-    }
+
+
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
 }
+
+let row = vec![
+    SpreadsheetCell::Int(3),
+    SpreadsheetCell::Text(String::from("blue")),
+    SpreadsheetCell::Float(10.12),
+];
+
+
+
+
+{
+let y = vec![1, 2, 3, 4];
+
+// do stuff with y
+} // <- y goes out of scope and is freed here
