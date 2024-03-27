@@ -1,40 +1,36 @@
-extern crate rand;
+trait Area {
+    fn area(&self) -> f64;
+}
 
-use std::io;
-use std::cmp::Ordering;
-use std::path::Component::ParentDir;
-use rand::Rng;
-use aggregator::{Summary, Tweet};
+struct Circle {
+    radius: f64,
+}
+
+struct Rectangle {
+    width: f64,
+    height: f64,
+}
+
+impl Area for Circle {
+    fn area(&self) -> f64 {
+        use std::f64::consts::PI;
+        PI * self.radius.powf(2.0)
+    }
+}
+
+impl Area for Rectangle {
+    fn area(&self) -> f64 {
+        self.width * self.height
+    }
+}
 
 fn main() {
+    let circle = Circle { radius: 5.0 };
+    let rectangle = Rectangle {
+        width: 10.0,
+        height: 20.0,
+    };
 
+    println!("Circle area: {}", circle.area());
+    println!("Rectangle area: {}", rectangle.area());
 }
-
-enum Coin {
-    찬원,
-    오천원,
-    만원,
-    오만원,
-}
-
-fn value_in_number(coin: Coin) -> u8 {
-    match coin {
-        Coin::찬원 => 1000,
-        Coin::오천원 => 5000,
-        Coin::만원 => 10000,
-        Coin::오만원 => 50000,
-    }
-}
-
-fn value_in_number_2(coin: Coin) -> u8 {
-    match coin {
-        Coin::찬원 => {
-            println!("이황");
-            1000
-        }
-        Coin::오천원 => 5000,
-        Coin::만원 => 10000,
-        Coin::오만원 => 50000,
-    }
-}
-
