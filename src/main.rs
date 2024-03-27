@@ -1,27 +1,62 @@
-use std::fmt;
-
-#[derive(Debug, PartialEq)]
-struct Point {
-    x: i32,
-    y: i32,
+trait AsJson {
+    fn as_json(&self) -> String;
 }
 
-impl fmt::Display for Point {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}, {}", self.x, self.y)
+fn send_data_as_json(value: &impl AsJson) {
+    println!("sending JSON data");
+    println!("-> {}", value.as_json());
+    println!("DONE");
+}
+fn send_data_as_json2<T: AsJson>(value: &T) {
+    println!("sending JSON data");
+    println!("-> {}", value.as_json());
+    println!("DONE");
+}
+
+struct Person {
+    name: String,
+    age: u8,
+    favorite_fruit: String,
+}
+
+struct Dog {
+    name: String,
+    color: String,
+    likes_petting: bool,
+}
+
+impl AsJson for Person {
+    fn as_json(&self) -> String {
+        format!(
+            r#"{{ "type": "person", "name": "{}", "age": {}, "favoriteFruit": {} }}"#,
+            self.name, self.age, self.favorite_fruit
+        )
+    }
+}
+
+impl AsJson for Dog {
+    fn as_json(&self) -> String {
+        format!(
+            r#"{{ "type": "dog", "name": "{}", "color": "{}", "likesPetting": {} }}"#,
+            self.name, self.color, self.likes_petting
+        )
     }
 }
 
 fn main() {
-    let p1 = Point{ x: 1, y: 2 };
-    let p2 = Point{ x: 4, y: -3 };
+    let laura = Person {
+        name: String::from("Laura"),
+        age: 31,
+        favorite_fruit: String::from("apple"),
+    };
 
-    if p1 == p2 {
-        println!("equal")
-    } else {
-        println!("not equal")
-    }
-    
-    println!("{}", p1);
-    println!("{:?}", p1);
+    let fido = Dog {
+        name: String::from("Fido"),
+        color: String::from("Black"),
+        likes_petting: true,
+    };
+
+    send_data_as_json(&laura);
+    send_data_as_json(&fido);
+
 }
